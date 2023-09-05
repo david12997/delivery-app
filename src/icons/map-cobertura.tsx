@@ -1,0 +1,13 @@
+import { IconProps } from "./icons.type";
+import React from "react";
+
+export default function MapCoberturaIcon(props:IconProps):JSX.Element {
+
+    return<>
+        <svg width={props.width} height={props.height} viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.7632 23.25L10.3421 21M10.3421 21L1.5 25.5V6L10.3421 1.5M10.3421 21V1.5M10.3421 1.5L19.1842 6M19.1842 6L28.0263 1.5V12.75M19.1842 6V14.25M25.0789 22.5V22.515M28.2046 25.6815C28.8231 25.0522 29.2443 24.2504 29.415 23.3774C29.5856 22.5045 29.4982 21.5996 29.1636 20.7773C28.829 19.9549 28.2624 19.252 27.5353 18.7575C26.8082 18.263 25.9534 17.999 25.0789 17.999C24.2045 17.999 23.3497 18.263 22.6226 18.7575C21.8955 19.252 21.3289 19.9549 20.9943 20.7773C20.6597 21.5996 20.5722 22.5045 20.7429 23.3774C20.9136 24.2504 21.3348 25.0522 21.9533 25.6815C22.5693 26.31 23.6112 27.249 25.0789 28.5C26.6278 27.165 27.6712 26.226 28.2046 25.6815Z" stroke={props.fill} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+
+
+    </>
+}
