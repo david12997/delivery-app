@@ -16,7 +16,7 @@ const CoberturaPage = async ():Promise<JSX.Element> => {
 
     const theme = JSON.parse(data.body[0].data as string).theme as ThemeProp;
 
-    return<section style={{color:theme.primary}} className="overflow-y-scroll overflow-x-hidden shadow-[#7f7f7f] shadow-md absolute bottom-[10px] w-[94vw] ml-[3vw] md:w-[390px] md:ml-[10px] bg-white h-[160px] md:h-[250px] rounded-md">
+    return<section style={{color:theme.primary}} className=" overflow-y-scroll overflow-x-hidden shadow-[#7f7f7f] shadow-md absolute bottom-[10px] w-[94vw] ml-[3vw] md:w-[390px] md:ml-[10px] bg-white h-[160px] md:h-[250px] rounded-md">
         <h1 className="w-[100%] h-[35px] text-[18px] font-extrabold  flex items-center justify-center"> Cobertura</h1>
         {
             coberturaData.cobertura.lugares.map((item,index) => {

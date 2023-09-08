@@ -4,6 +4,7 @@ export type NavbarProps ={
     items:ItemProp[],
     social:SocialProp[],
     theme:ThemeProp
+    admin?:boolean
 }
 
 export type ItemProp ={

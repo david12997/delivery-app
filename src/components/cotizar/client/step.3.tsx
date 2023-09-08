@@ -3,9 +3,10 @@ import { ThemeProp } from '@/components/nav/nav.type';
 import { useAppDispatch } from '@/store';
 import { setEnEjecucion } from '@/store/cotizacion';
 import React  from 'react';
+import { Step3Props } from '../cotizar.type';
 
 
-const Step3Cotizar = (props:{title:string,terminos:any,theme:ThemeProp}):JSX.Element =>{
+const Step3Cotizar = (props:Step3Props):JSX.Element =>{
 
     const dispatch = useAppDispatch();
 
@@ -19,6 +20,46 @@ const Step3Cotizar = (props:{title:string,terminos:any,theme:ThemeProp}):JSX.Ele
             background:'#5a8302',
             color:props.theme.white
         }
+    }
+
+    const handleClickCotizar = ():void =>{
+        // hidden response
+        document.querySelector('.cotizar-response-screen')?.classList.remove('hidden');
+
+        // Simulacion de carga
+        setTimeout(()=>{
+            document.querySelector('.spiner-response-cotizar')?.classList.add('hidden'); 
+            document.querySelector('.data-response-route')?.classList.remove('hidden');
+        },1000);
+    
+        dispatch(setEnEjecucion(true));
+        
+        // hidden cotizador
+        document.querySelector('.cotizador')?.classList.remove('block');
+        document.querySelector('.cotizador')?.classList.add('hidden');
+
+
+        setTimeout(()=>{
+            dispatch(setEnEjecucion(false));
+        },2000);     // hidden response
+        document.querySelector('.cotizar-response-screen')?.classList.remove('hidden');
+
+        // Simulacion de carga
+        setTimeout(()=>{
+            document.querySelector('.spiner-response-cotizar')?.classList.add('hidden'); 
+            document.querySelector('.data-response-route')?.classList.remove('hidden');
+        },1000);
+    
+        dispatch(setEnEjecucion(true));
+        
+        // hidden cotizador
+        document.querySelector('.cotizador')?.classList.remove('block');
+        document.querySelector('.cotizador')?.classList.add('hidden');
+
+
+        setTimeout(()=>{
+            dispatch(setEnEjecucion(false));
+        },2000);
     }
 
     return<div className="container-body-step-1 mt-[15px]">
@@ -58,20 +99,7 @@ const Step3Cotizar = (props:{title:string,terminos:any,theme:ThemeProp}):JSX.Ele
 
         <div style={styleSiguiente.unlocked} 
             className="cursor-pointer  shadow-sm shadow-[#878787] rounded-md text-[18px] font-bold  bottom-[20px] flex items-center justify-center  button-next-step absolute  w-[90%] ml-[5%] h-[60px]"
-            onClick={()=>{
-                document.querySelector('.cotizar-response-screen')?.classList.remove('hidden');
-                setTimeout(()=>{
-                    document.querySelector('.spiner-response-cotizar')?.classList.add('hidden'); 
-                    document.querySelector('.data-response-route')?.classList.remove('hidden');
-                },1000);
-               
-                dispatch(setEnEjecucion(true));
-                document.querySelector('.cotizador')?.classList.remove('block');
-                document.querySelector('.cotizador')?.classList.add('hidden');
-                setTimeout(()=>{
-                    dispatch(setEnEjecucion(false));
-                },2000);
-            }}
+            onClick={()=>handleClickCotizar()}
         >
             Cotizar entrega
         </div>

@@ -4,7 +4,7 @@ export const NewConversion = async(dataConversion:any) =>{
     try{
 
 
-        const response = await fetch('http://localhost:3000/api/conversion', {
+        const response = await fetch(process.env.NEXT_PUBLIC_DOMAIN+'/api/conversion', {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',

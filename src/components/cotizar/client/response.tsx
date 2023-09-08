@@ -1,11 +1,14 @@
 'use client'
 import Button from '@/components/button/button';
-import { ThemeProp } from '@/components/nav/nav.type';
 import { NewConversion } from '@/services/new.conversion';
 import { useAppSelector } from '@/store';
 import React from 'react';
+import { ResponseCotizarProps } from '../cotizar.type';
+import { io } from "socket.io-client";
 
-const ResponseCotizar = (props:{theme:ThemeProp,priceKm:number,priceMayorista:number,priceHour:number}):JSX.Element =>{
+const ResponseCotizar = (props:ResponseCotizarProps):JSX.Element =>{
+
+   
 
     const stateCotizar = useAppSelector(state => state.cotizacion);
     const inputWhatsappRef = React.useRef<HTMLInputElement>(null);
@@ -122,8 +125,17 @@ const ResponseCotizar = (props:{theme:ThemeProp,priceKm:number,priceMayorista:nu
                             NewConversion(Conversion)
                             .then(res =>{
                                 if(res.status === 200){
+                                    
                                     document.querySelector('.spiner-response-cotizar')?.classList.add('hidden');
                                     document.querySelector('.success-conversion')?.classList.remove('hidden');
+                                    console.log('agendamiento exitoso');
+                                    // send notification to conductor via socket
+                                    const socket = io('http://localhost:3001');
+                                    socket.on('connect', () => {
+                                        console.log('conectado al servidor');
+                                        socket.emit('new_service', JSON.stringify({status:'update services',data:Conversion}));
+                                    });
+
                                 }else{
                                     document.querySelector('.spiner-response-cotizar')?.classList.add('hidden');
                                     document.querySelector('.failed-conversion')?.classList.remove('hidden');

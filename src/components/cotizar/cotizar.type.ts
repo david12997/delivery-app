@@ -62,3 +62,21 @@ export interface Step2Props {
     }
     clickNext:()=>void,
 }
+
+// step 3 Cotizar
+export interface Step3Props {
+    title:string,
+    theme:ThemeProp,
+    terminos:{
+        condiciones:string[],
+        adicionales:string[],
+    }
+}
+
+//response cotizar
+export interface ResponseCotizarProps {
+    theme:ThemeProp,
+    priceKm:number,
+    priceMayorista:number,
+    priceHour:number
+}
