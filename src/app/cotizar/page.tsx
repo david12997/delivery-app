@@ -1,4 +1,5 @@
 export const dynamic = 'force-dynamic'
+export const fetchCache = 'force-no-store'
 
 import { GetData } from "@/services/get.data"
 import { DeliveryJSON } from "../api/delivery/delivery.type";

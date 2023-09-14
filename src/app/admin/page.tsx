@@ -2,7 +2,6 @@ export const dynamic = 'force-dynamic'
 
 import { GetData } from "@/services/get.data";
 import { DeliveryJSON } from "../api/delivery/delivery.type";
-import LoginAdmin from "@/components/login/login";
 import { ThemeProp } from "@/components/nav/nav.type";
 
 
@@ -17,7 +16,6 @@ const AdminPage = async ():Promise<JSX.Element> => {
     return<>
 
         <section style={{background:theme.gray}} className="w-screen h-[100vh] flex items-center justify-center">
-            <LoginAdmin theme={JSON.parse(data.body[0].data as string).theme} />
         </section>
 
     </> 

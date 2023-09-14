@@ -125,7 +125,7 @@ const Step2Cotizar = (props:Step2Props):JSX.Element =>{
         {
             (props.title === 'Una sola entrega' || props.title === 'Transporte de personas' || typeCotizar === 'recoger')
             ?
-            <div className='p-2 flex  items-center direction-selected w-[90%] ml-[5%] h-[60px] absolute  bottom-[90px]'>
+            <div className='p-2 flex  items-center direction-selected w-[90%] ml-[5%] h-[60px] absolute  bottom-[136px]'>
                 <div className='text-[16px] font-extrabold text-[#7e7e7e]'>
                     <span className='mr-2'>{typeCotizar === 'recoger' ? 'Recoger en:  ' : 'Entregar en:  '}</span>
                     { (typeCotizar === 'recoger' && RecogerState.length !== 0) &&  RecogerState[0].direccion}
@@ -133,15 +133,15 @@ const Step2Cotizar = (props:Step2Props):JSX.Element =>{
                 </div>
             </div>
             :
-            <div className='bg-white  p-2 block  direction-selected w-[90%] ml-[5%] h-[96px] absolute  bottom-[89px] overflow-y-scroll'>
+            <div className='bg-white  p-2 block  direction-selected w-[90%] ml-[5%] h-[84px] absolute bottom-[118px]  md:bottom-[96px] overflow-y-scroll'>
                 <div className='text-[16px] font-extrabold text-[#7e7e7e]'>
                     Entregar En:
                 </div>
                 {
-                    EntregarState.length !== 0 && EntregarState.map((item,index) =><div key={index} className='w-[100%] flex items-center justify-center h-[35px]'>
+                    EntregarState.length !== 0 && EntregarState.map((item:any,index:number) =><div key={index} className='w-[100%] flex items-center justify-center h-[35px]'>
                         <div className='w-[10%] cursor-pointer' onClick={()=>{
                             clearInput();
-                            dispatch(addEntregar(EntregarState.filter((item2,index2) => index2 !== index && item2)));
+                            dispatch(addEntregar(EntregarState.filter((item2:any,index2:number) => index2 !== index && item2)));
                         }}>
                             <Trash
                                 width={20}
@@ -161,7 +161,7 @@ const Step2Cotizar = (props:Step2Props):JSX.Element =>{
 
 
         <div style={RecogerState.length === 0 || EntregarState.length === 0 ? styleSiguiente.locked : styleSiguiente.unlocked} 
-            className="cursor-pointer  shadow-sm shadow-[#878787] rounded-md text-[18px] font-bold  bottom-[20px] flex items-center justify-center  button-next-step absolute  w-[90%] ml-[5%] h-[60px]"
+            className="cursor-pointer  shadow-sm shadow-[#878787] rounded-md text-[18px] font-bold bottom-[60px]  md:bottom-[36px] flex items-center justify-center  button-next-step absolute  w-[90%] ml-[5%] h-[60px]"
             onClick={() =>{
                 (RecogerState.length !== 0 && EntregarState.length !== 0) 
                 &&

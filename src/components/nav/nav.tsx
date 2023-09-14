@@ -86,6 +86,19 @@ const NavbarAdmin = (props:NavbarProps):JSX.Element => {
             </h1>
         </Link>
 
+        <div className="container-items-redes w-[330px] hidden md:flex justify-around  mr-2 md:mr-4">
+            
+            <div className="container-items  flex items-center">
+               
+
+                <Link href='/conductores/salir' className={`flex items-center justify-center w-[100px] h-[50px] text-white text-[18px] font-semibold ml-1 mr-1`}>
+                    Salir
+                </Link>
+
+            </div>
+
+        </div>
+
 
         <HamburgerBars/>
 

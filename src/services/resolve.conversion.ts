@@ -1,5 +1,4 @@
-
-export const GetData = async(urls:string[]) =>{
+export const ResolveConversion = async(urls:string[],stateConversion:string,idCnversion:number) =>{
 
     try{
 
@@ -9,10 +8,12 @@ export const GetData = async(urls:string[]) =>{
         urls.forEach((url:string, index:number)=>{
             
             promises[index] = fetch(url,{
-                cache: 'no-store',
+                method: 'POST',
+                cache: 'no-cache',
                 headers:{
                     'Content-Type': 'application/json'
-                }
+                },
+                body:JSON.stringify({secret_id:process.env.NEXT_PUBLIC_SECRET_ID,stateConversion:stateConversion,idConversion:idCnversion}),
             })           
         
         });

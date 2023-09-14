@@ -1,3 +1,6 @@
+export const dynamic = 'force-dynamic'
+export const fetchCache = 'force-no-store'
+
 import { NextResponse } from 'next/server';
 import { DB } from '@/db/config';
 import { Body, DeliveryJSON } from './delivery.type';

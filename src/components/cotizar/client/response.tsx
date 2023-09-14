@@ -102,7 +102,7 @@ const ResponseCotizar = (props:ResponseCotizarProps):JSX.Element =>{
                     click={()=>{
                         
                         const whatsapp = inputWhatsappRef.current?.value;
-                        if(whatsapp === undefined || whatsapp === null || whatsapp === ''){
+                        if(whatsapp === undefined || whatsapp === null || whatsapp === '' || whatsapp.length < 10){
                             alert('Debes escribir tu whatsapp');
                             return 0;
                         }else{
@@ -130,7 +130,7 @@ const ResponseCotizar = (props:ResponseCotizarProps):JSX.Element =>{
                                     document.querySelector('.success-conversion')?.classList.remove('hidden');
                                     console.log('agendamiento exitoso');
                                     // send notification to conductor via socket
-                                    const socket = io('http://localhost:3001');
+                                    const socket = io(process.env.NEXT_PUBLIC_WEBSOCKETS_SERVER as string);
                                     socket.on('connect', () => {
                                         console.log('conectado al servidor');
                                         socket.emit('new_service', JSON.stringify({status:'update services',data:Conversion}));
@@ -153,9 +153,11 @@ const ResponseCotizar = (props:ResponseCotizarProps):JSX.Element =>{
         }
 
         <div className='hidden p-1 md:p-2 success-conversion    w-[100%]  text-[#7f7f7f] font-bold text-[16px]'>
-            <h2 className=' mb-3  w-[100%]  text-[#000000] font-bold text-[18px]'> ¡ Agendamiento exitoso !</h2>
+            <h2 className='flex items-center justify-center mb-3  w-[100%]  text-[#277b25] font-bold text-[20px]'> ¡ Agendamiento exitoso !</h2>
+            <br/>
             <p>En breve recibiras un mensaje de whatsapp</p>
-            <p>por parte del domiciliario</p>
+            <p>por parte del mensajero</p>
+            <br/>
             <Button
                 text='Aceptar Y salir'
                 bg={props.theme.primary}

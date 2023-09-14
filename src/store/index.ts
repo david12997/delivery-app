@@ -1,11 +1,14 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 
 import CotizacionSliceReducer from './cotizacion';
+import ConductorSliceReducer from './conductor';
+
 import { useDispatch, useSelector } from "react-redux";
 import type { TypedUseSelectorHook } from "react-redux/es/types";
 
 const rootReducer = combineReducers({
     cotizacion: CotizacionSliceReducer,
+    conductor: ConductorSliceReducer,
 });
 
 export const store = configureStore({

@@ -1,7 +1,7 @@
 export const dynamic = 'force-dynamic'
+export const fetchCache = 'force-no-store'
 
 import { DeliveryJSON } from "@/app/api/delivery/delivery.type";
-import Card from "@/components/card/card";
 import Navbar from "@/components/nav/nav";
 import { GetData } from "@/services/get.data";
 import SectionCards from "./section.cards";

@@ -10,7 +10,7 @@ export const GetConversion = async(urls:string[],offset:string) =>{
             
             promises[index] = fetch(url,{
                 method: 'PUT',
-                cache: 'no-cache',
+                cache: 'no-store',
                 headers:{
                     'Content-Type': 'application/json'
                 },

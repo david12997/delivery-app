@@ -2,6 +2,8 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Providers from './provaider'
+import NextTopLoader from 'nextjs-toploader';
+
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -18,6 +20,7 @@ export default async function RootLayout({children,}: {children: React.ReactNode
       
       <html lang="es">
         <body className="w-screen h-screen">
+          <NextTopLoader height={9} />
           {children}
         </body>
       </html>

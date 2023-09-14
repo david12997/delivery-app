@@ -98,7 +98,7 @@ const Step3Cotizar = (props:Step3Props):JSX.Element =>{
         </div>
 
         <div style={styleSiguiente.unlocked} 
-            className="cursor-pointer  shadow-sm shadow-[#878787] rounded-md text-[18px] font-bold  bottom-[20px] flex items-center justify-center  button-next-step absolute  w-[90%] ml-[5%] h-[60px]"
+            className="cursor-pointer  shadow-sm shadow-[#878787] rounded-md text-[18px] font-bold  bottom-[60px] flex items-center justify-center  button-next-step absolute  w-[90%] ml-[5%] h-[60px]"
             onClick={()=>handleClickCotizar()}
         >
             Cotizar entrega

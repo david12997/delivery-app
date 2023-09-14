@@ -21,7 +21,7 @@ const Map = (props:MapProps):JSX.Element => {
       Maps.RenderMap({geoJson:{
         addGeoJson:true,
         data:{
-          url:'http://localhost:3000/cobertura.geojson',
+          url:process.env.NEXT_PUBLIC_DOMAIN+'/cobertura.geojson',
         }
       }});
     }
